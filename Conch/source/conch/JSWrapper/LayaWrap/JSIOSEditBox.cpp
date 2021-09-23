@@ -257,7 +257,7 @@ void JSIOSEditBox::setType( const char* p_sType )
 	if( m_sType == "password" )
 	{
 		bPassword = true;
-	}
+    }
 	CToObjectCSetEditBoxPassword( bPassword );
 }
 //------------------------------------------------------------------------------

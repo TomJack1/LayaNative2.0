@@ -23,7 +23,14 @@
 //-------------------------------------------------------------------------------
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)p_sString
 {
-    UIEditBox* pEditBox = (UIEditBox*)textView;
+    // check markedTextRange
+    UITextRange *selectedRange = textView.markedTextRange;
+    BOOL checkPosition = [textView positionFromPosition:selectedRange.start offset:0];
+    if (checkPosition) {
+        return YES;
+    }
+    
+    UIEditBox* pEditBox = (UIEditBox*)textView.superview;
     if([pEditBox getForbidEdit] == true)return NO;
     if( [p_sString length] <= 0 )return YES;
     int nMaxLength = [pEditBox GetMaxLength];
@@ -63,6 +70,29 @@
                     }
                     return NO;
                 }
+            }else {
+                
+                if(textView.text.length >= nMaxLength && p_sString.length > 0){
+                    //获得为输入前EditBox中的内容
+                    NSString* sOldText = [pEditBox.text substringToIndex:range.location];
+                    //再加上现在的内容  p_sString 是本次输入的字符内容
+                    NSString* sCurrentAndOldText = [ NSString stringWithFormat: @"%@%@", sOldText,p_sString ];
+                    //如果超过字数，进行裁掉后面的
+                    if( sCurrentAndOldText.length > nMaxLength )
+                    {
+                        NSString * conetent = [sCurrentAndOldText substringToIndex:nMaxLength];
+                        pEditBox.text = conetent;
+                        textView.text = conetent;
+                    }
+                    else
+                    {
+                        pEditBox.text = sCurrentAndOldText;
+                        textView.text = sCurrentAndOldText;
+                    }
+                    return NO;
+                }else {
+                    return  YES;
+                }
             }
         }
         else if([sLanguage isEqualToString:@"emoji"]){
@@ -89,7 +119,32 @@
     }
     return [pEditBox IsInputValid:p_sString];
 }
-//-------------------------------------------------------------------------------
+
+
+
+
+//-----------------------------------UITextView--------------------------------------------
+- (void)textViewDidChangeSelection:(UITextView *)textView {
+
+    NSString *lang = textView.textInputMode.primaryLanguage;//键盘输入模式
+    if ([lang isEqualToString:@"zh-Hans"]){
+        
+        UITextRange *selectedRange = [textView markedTextRange];
+     
+        if (!selectedRange) {
+            UIEditBox* pEditBox = (UIEditBox*)textView.superview;
+            int nMaxLength = [pEditBox GetMaxLength];
+            if( nMaxLength <= -1 ) {
+                return;
+            }
+            if(textView.text.length >= nMaxLength){
+                NSString * conetent = [textView.text substringToIndex:nMaxLength];
+                pEditBox.text = conetent;
+                textView.text = conetent;
+            }
+        }
+    }
+}
 -(void)textViewDidBeginEditing:(UITextView *)textField
 {
     m_nEditBoxPosY = ( textField.frame.origin.y + textField.frame.size.height ) * m_fRetinaValue;
@@ -109,6 +164,123 @@
         m_nEditBoxPosY = 0;
     }
 }
+//-----------------------------------UITextField--------------------------------------------
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField {
+    m_nEditBoxPosY = ( textField.frame.origin.y + textField.frame.size.height ) * m_fRetinaValue;
+}
+-(void)textFieldDidEndEditing:(UITextField *)textField {
+    GLKView* pView = [conchRuntime GetIOSConchRuntime]->m_pGLKView;
+    if( [conchRuntime GetIOSConchRuntime]->m_nGLViewOffset != 0 )
+    {
+        float width = pView.frame.size.width;
+        float height = pView.frame.size.height;
+        CGRect rect = CGRectMake(0.0f, 0, width, height );
+        pView.frame = rect;
+        [conchRuntime GetIOSConchRuntime]->m_nGLViewOffset = 0;
+        m_nEditBoxPosY = 0;
+    }
+}
+//-------------------------------------------------------------------------------
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)p_sString
+{
+    UITextRange *selectedRange = textField.markedTextRange;
+    BOOL checkPosition = [textField positionFromPosition:selectedRange.start offset:0];
+    if (checkPosition) {
+        return YES;
+    }
+    
+    
+    UIEditBox* pEditBox = (UIEditBox*)textField.superview;
+    if([pEditBox getForbidEdit] == true)return NO;
+    if( [p_sString length] <= 0 )return YES;
+    int nMaxLength = [pEditBox GetMaxLength];
+    if( nMaxLength != -1 )
+    {
+        if(![pEditBox getMultiAble]&&[p_sString isEqualToString:@"\n"])
+        {
+            [pEditBox resignFirstResponder];
+            return NO;
+        }
+        NSString* sLanguage = [[UITextInputMode currentInputMode]primaryLanguage];
+        //中文输入
+        if( [sLanguage isEqualToString:@"zh-Hans"] )
+        {
+            //range.length 代表 后选字母，比如 中文情况下的 yyy 。变灰色了
+            if( range.length > 0 )
+            {
+                //如果已经够字数了，直接返回
+                if( range.location >= nMaxLength )
+                {
+                    return NO;
+                }
+                else
+                {
+                    //获得为输入前EditBox中的内容
+                    NSString* sOldText = [pEditBox.text substringToIndex:range.location];
+                    //再加上现在的内容  p_sString 是本次输入的字符内容
+                    NSString* sCurrentAndOldText = [ NSString stringWithFormat: @"%@%@", sOldText,p_sString ];
+                    //如果超过字数，进行裁掉后面的
+                    if( sCurrentAndOldText.length > nMaxLength )
+                    {
+                        pEditBox.text = [sCurrentAndOldText substringToIndex:nMaxLength];
+                    }
+                    else
+                    {
+                        pEditBox.text = sCurrentAndOldText;
+                    }
+                    return NO;
+                }
+            }else {
+        
+                if(textField.text.length >= nMaxLength && p_sString.length > 0){
+                    //获得为输入前EditBox中的内容
+                    NSString* sOldText = [pEditBox.text substringToIndex:range.location];
+                    //再加上现在的内容  p_sString 是本次输入的字符内容
+                    NSString* sCurrentAndOldText = [ NSString stringWithFormat: @"%@%@", sOldText,p_sString ];
+                    //如果超过字数，进行裁掉后面的
+                    if( sCurrentAndOldText.length > nMaxLength )
+                    {
+                        NSString * conetent = [sCurrentAndOldText substringToIndex:nMaxLength];
+                        pEditBox.text = conetent;
+                        textField.text = conetent;
+                    }
+                    else
+                    {
+                        pEditBox.text = sCurrentAndOldText;
+                        textField.text = sCurrentAndOldText;
+                    }
+                    return NO;
+                }else {
+                    return  YES;
+                }
+            }
+        }
+        else if([sLanguage isEqualToString:@"emoji"]){
+            return NO;
+        }
+        else
+        {
+            if( range.location >= nMaxLength )
+            {
+                return NO;
+            }
+        }
+    }
+    bool bNumberOnly = [pEditBox getNumberOnly];
+    if( bNumberOnly )
+    {
+        NSCharacterSet* cs = [[NSCharacterSet characterSetWithCharactersInString:NUMBERS] invertedSet];
+        NSString* nsFiltered = [[p_sString componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];
+        BOOL bBasicTest = [p_sString isEqualToString:nsFiltered];
+        if(!bBasicTest)
+        {
+            return NO;
+        }
+    }
+    return [pEditBox IsInputValid:p_sString];
+}
+
 - (void)keyboardWasShown:(NSNotification*)aNotification
 {
     [conchRuntime GetIOSConchRuntime]->m_bIgnoreCurEvent = true;
@@ -116,8 +288,8 @@
 -(void)keyboardWasShownEnd:(NSNotification*)aNotification
 {
     [conchRuntime GetIOSConchRuntime]->m_bIgnoreCurEvent = false;
-    UITextView * textField=[conchRuntime GetIOSConchRuntime]->m_pEditBox->m_pEditBox;
-    m_nEditBoxPosY = ( textField.frame.origin.y + textField.frame.size.height ) * m_fRetinaValue;
+    UIView * textView=[conchRuntime GetIOSConchRuntime]->m_pEditBox->m_pEditBox;
+    m_nEditBoxPosY = ( textView.frame.origin.y + textView.frame.size.height ) * m_fRetinaValue;
     NSDictionary* info = [aNotification userInfo];
     //kbSize即為鍵盤尺寸 (有width, height)
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;//得到鍵盤的高度
@@ -199,5 +371,10 @@
 {
     [self postToC];
 }
+- (void)textFieldDidChanged:(UITextField *)textField {
+    [self postToC];
+}
+
+
 
 @end

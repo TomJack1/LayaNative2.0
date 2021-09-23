@@ -66,7 +66,7 @@
 //获得最大长度
 -(int) getMaxLength;
 //获得TextField 指针
--(UITextView*) getTextField;
+-(id) getTextField;
 //监听变化的
 //-(void) textFieldDidChange:(UITextField*)p_pTextFiled;
 

@@ -7,8 +7,9 @@
  @company       JoyChina
  */
 #import "UIKit/UIKit.h"
+#import "LayaEditBoxDelegate.h"
 
-@interface UIEditBox  : UITextView
+@interface UIEditBox  : UIView
 {
     bool                    m_bNumberOnly;
     bool                    m_bForbidEdit;
@@ -16,8 +17,23 @@
     int                     m_nMaxLength;
     NSString*               m_sRegular;
     NSRegularExpression*    m_pRegular;
+    UITextView*             m_textView;
+    UITextField*            m_textFiled;
+    
 }
+@property(nonatomic,strong)UIFont * _tempFont;
+@property(nonatomic,strong)NSString * content;
+@property(nonatomic,strong)UIFont * font;
+@property(nonatomic,strong)UIColor* textColor;
+@property(nonatomic,assign)BOOL secureTextEntry;
+@property(nonatomic,strong)NSString * text;
+@property(nonatomic,assign)UITextAutocapitalizationType autocapitalizationType;
+
+@property (nonatomic, weak) id delegate;
+
+
 -(UIEditBox*)init;
+
 -(void) SetMaxLength:(int)p_nMaxLength;
 -(int) GetMaxLength;
 -(void) setNumberOnly:(bool)p_bNumberOnly;
@@ -28,5 +44,5 @@
 -(BOOL) IsInputValid:(NSString*)p_sBuffer;
 -(void)setMultiAble:(bool)p_bMultiAble;
 -(BOOL) getMultiAble;
-
+-(id)getTextField;
 @end

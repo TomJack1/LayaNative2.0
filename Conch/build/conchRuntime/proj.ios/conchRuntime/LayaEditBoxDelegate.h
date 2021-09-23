@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <GLKit/GLKit.h>
 
-@interface LayaEditBoxDelegate  : NSObject <UITextViewDelegate>
+@interface LayaEditBoxDelegate  : NSObject <UITextViewDelegate,UITextFieldDelegate>
 {
 @public
     float   m_fRetinaValue;

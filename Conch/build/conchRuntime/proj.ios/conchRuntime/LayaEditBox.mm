@@ -240,9 +240,9 @@
     return m_nMaxLength;
 }
 //-------------------------------------------------------------------------------
--(UITextView*) getTextField
+-(id) getTextField
 {
-    return m_pEditBox;
+    return [m_pEditBox getTextField];
 }
 //-------------------------------------------------------------------------------
 -(void) setLines:(int)p_nLines

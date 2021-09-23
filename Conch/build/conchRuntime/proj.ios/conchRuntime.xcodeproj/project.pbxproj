@@ -76,6 +76,7 @@
 		A2EE055D1C8A77B700A35FB6 /* conchRuntime.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = A2EE055C1C8A77B700A35FB6 /* conchRuntime.h */; };
 		A2EE055F1C8A77B700A35FB6 /* conchRuntime.mm in Sources */ = {isa = PBXBuildFile; fileRef = A2EE055E1C8A77B700A35FB6 /* conchRuntime.mm */; };
 		A2F3B7A1216CAB8B0016F0A2 /* bullet_glue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A2F3B79E216CAB8B0016F0A2 /* bullet_glue.cpp */; };
+		E2CC956926FC261D00C45146 /* UITextField+Limit.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CC956826FC261D00C45146 /* UITextField+Limit.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -239,6 +240,8 @@
 		A2F3B79E216CAB8B0016F0A2 /* bullet_glue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = bullet_glue.cpp; path = ../../../../source/conch/JSWrapper/LayaWrap/Bullet/bullet_glue.cpp; sourceTree = "<group>"; };
 		A2F3B79F216CAB8B0016F0A2 /* bullet_glue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bullet_glue.h; path = ../../../../source/conch/JSWrapper/LayaWrap/Bullet/bullet_glue.h; sourceTree = "<group>"; };
 		A2F3B7A0216CAB8B0016F0A2 /* JSbtBindHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSbtBindHelper.h; path = ../../../../source/conch/JSWrapper/LayaWrap/Bullet/JSbtBindHelper.h; sourceTree = "<group>"; };
+		E2CC956726FC261D00C45146 /* UITextField+Limit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+Limit.h"; sourceTree = "<group>"; };
+		E2CC956826FC261D00C45146 /* UITextField+Limit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Limit.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -315,6 +318,8 @@
 				A2C56ADD1C8ADB5A009DDC1D /* TouchFilter.h */,
 				A2C56ADE1C8ADB5A009DDC1D /* UIEditBox.h */,
 				A2C56ADF1C8ADB5A009DDC1D /* UIEditBox.mm */,
+				E2CC956726FC261D00C45146 /* UITextField+Limit.h */,
+				E2CC956826FC261D00C45146 /* UITextField+Limit.m */,
 				A2C56AB41C8ADAB9009DDC1D /* Reachability */,
 				A2C56AB21C8ADAA8009DDC1D /* Notification */,
 				A2C56AB01C8ADA80009DDC1D /* Audio */,
@@ -702,6 +707,7 @@
 				A2D119D51D0BCA70004C229D /* JSImage.cpp in Sources */,
 				5E7AB4D71DD2CE2B001AE49F /* LayaScreenShotter.mm in Sources */,
 				A2C56AB71C8ADAD3009DDC1D /* Reachability.m in Sources */,
+				E2CC956926FC261D00C45146 /* UITextField+Limit.m in Sources */,
 				A2D119911D0BCA59004C229D /* JSInterface.cpp in Sources */,
 				A2757BE6219AB43D00DB3683 /* PlayerLayerRenderTarget.m in Sources */,
 				A264F7C220C7DDC100D95F1B /* JSLayaGL.cpp in Sources */,
