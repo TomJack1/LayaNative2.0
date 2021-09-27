@@ -129,13 +129,13 @@ LOCAL_LDLIBS    := -llog -lGLESv3 -landroid -ljnigraphics \
 #        ../../../../../ThirdParty/bullet/lib/android-$(LOCAL_IS64)/libBulletSoftBody.a \
 			
 ifeq ($(TARGET_ARCH),arm64)
-LOCAL_LDLIBS += $(NDK_DIR)/sources/cxx-stl/gnu-libstdc++/4.9/libs/arm64-v8a/libgnustl_static.a
+LOCAL_LDLIBS += /Users/tom/Library/Android/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/libs/arm64-v8a/libgnustl_static.a
 else ifeq ($(TARGET_ARCH_ABI),armeabi)
-LOCAL_LDLIBS += $(NDK_DIR)/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi/libgnustl_static.a
+LOCAL_LDLIBS += /Users/tom/Library/Android/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi/libgnustl_static.a
 else ifeq ($(TARGET_ARCH),x86)
-LOCAL_LDLIBS += $(NDK_DIR)/sources/cxx-stl/gnu-libstdc++/4.9/libs/x86/libgnustl_static.a
+LOCAL_LDLIBS += /Users/tom/Library/Android/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/libs/x86/libgnustl_static.a
 else
-LOCAL_LDLIBS += $(NDK_DIR)/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/libgnustl_static.a
+LOCAL_LDLIBS += /Users/tom/Library/Android/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/libgnustl_static.a
 endif
 
 include $(BUILD_SHARED_LIBRARY)
