@@ -3,20 +3,20 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         config {
-            keyAlias 'snowball'
-            keyPassword 'joychina'
-            storeFile file("../key/snowball")
-            storePassword 'joychina'
+            keyAlias 'keystore'
+            keyPassword 'qwe123123'
+            storeFile file("../key/snowball.keystore")
+            storePassword 'qwe123123'
         }
     }
-    compileSdkVersion 28
+    compileSdkVersion 30
     buildToolsVersion "28.0.0"
     useLibrary 'org.apache.http.legacy'
 
     defaultConfig {
         applicationId "com.layabox.conch6"
         minSdkVersion 14
-        targetSdkVersion 28
+        targetSdkVersion 30
         versionCode 20
         versionName "release-2.12.0"
     }
@@ -49,5 +49,6 @@ dependencies {
     implementation project(':conch5')
     implementation group: 'com.google.zxing', name: 'core', version: '3.3.1'
     implementation 'com.journeyapps:zxing-android-embedded:3.3.0'
+    //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:25.3.1'
 }

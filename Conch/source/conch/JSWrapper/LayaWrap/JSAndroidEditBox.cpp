@@ -287,13 +287,13 @@ void JSAndroidEditBox::setMaxLength( int p_nMaxLength )
 void JSAndroidEditBox::setType( const char* p_sType )
 {
 	m_sType = p_sType;
-	bool bPassword = false;
-	if( m_sType == "password" )
-	{
-		bPassword = true;
-	}
+	// bool bPassword = false;
+	// if( m_sType == "password" )
+	// {
+	// 	bPassword = true;
+	// }
 	CToJavaBridge::JavaRet kRet;
-    CToJavaBridge::GetInstance()->callMethod( CToJavaBridge::JavaClass.c_str(), "setEditBoxPassword", bPassword, kRet);
+    CToJavaBridge::GetInstance()->callMethod( CToJavaBridge::JavaClass.c_str(), "setEditBoxPassword", p_sType, kRet);
 }
 //------------------------------------------------------------------------------
 void JSAndroidEditBox::setRegular( const char* p_sRegular )

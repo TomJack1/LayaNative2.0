@@ -424,6 +424,35 @@ public class LayaEditBox
 		}
 		return false;
 	}
+
+	public void setNumberKeyboardType(){
+		m_bPassWord = false;
+		m_Handler.post
+				(
+						new Runnable()
+						{
+							public void run()
+							{
+								m_pEditBox.setInputType(InputType.TYPE_CLASS_PHONE);
+							}
+						}
+				);
+	}
+	public void  setNomalKeyboardType(){
+
+		m_Handler.post
+				(
+						new Runnable()
+						{
+							public void run()
+							{
+								m_pEditBox.setInputType( InputType.TYPE_CLASS_TEXT);
+							}
+						}
+				);
+	}
+
+
 	public void setTextColor( int p_nColor )
 	{
 		m_nTextColor = p_nColor;

@@ -772,14 +772,23 @@ public class ExportJavaFunction
 		}
 	}
 	//------------------------------------------------------------------------------
-	public static void setEditBoxPassword( boolean p_bPassword )
+	public static void setEditBoxPassword( String keyboardType )
 	{
 		ExportJavaFunction exjf = ExportJavaFunction.GetInstance();
 		if( exjf!=null ){
 			LayaEditBox pEditBox = exjf.m_pEngine.getEditBox();
 			if( pEditBox != null )
 			{
-				pEditBox.setPassWord(p_bPassword);
+
+				if(keyboardType == "password"){
+					pEditBox.setPassWord(true);
+				}else if(keyboardType == "number")  {
+
+					pEditBox.setNumberKeyboardType();
+				}else {
+					pEditBox.setNomalKeyboardType();
+				}
+
 			}
 		}
 	}
