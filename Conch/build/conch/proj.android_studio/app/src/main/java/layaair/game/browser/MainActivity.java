@@ -18,6 +18,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.EditorInfo;
+
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import layaair.game.conch.ILayaEventListener;
@@ -83,17 +85,20 @@ public class MainActivity extends AppCompatActivity {
 				mLayaEngine.setGameUrl(gameUrl);
 			}
 		}
-		/*else
-		{
-			mLayaEngine.setGameUrl("http://10.10.30.29:8899/conch-main.html");
-		}*/
+//		else
+//		{
+//			mLayaEngine.setGameUrl("http://192.168.31.69:8901/bin/index.js");
+//		}
 //		HashMap<String, Object> _option = new HashMap<String, Object>();
 //		_option.put("sopath", "/data/data/com.layabox.conch3/pluginslib/");
 //		mLayaEngine.setOptions(_option);
 //		mLayaEngine.setGameUrl("http://10.10.30.29:8888/starthtml/index4.html");
 //		mLayaEngine.setGameUrl("http://192.168.0.106:8888/starthtml/default1.html");
-
+		mLayaEngine.setGameUrl("http://192.168.31.69:8901/bin/index.js");
 		mLayaEngine.startGame();
+
+//		LayaConch5 tmp = (LayaConch5)mLayaEngine;
+//		tmp.m_pEditBox.m_pEditBox.setImeOptions(EditorInfo.IME_ACTION_SEND | EditorInfo.IME_FLAG_NO_EXTRACT_UI);
 		//删除全部推送消息
 		//LayaNotifyManager.removeAllNotify();
 	}

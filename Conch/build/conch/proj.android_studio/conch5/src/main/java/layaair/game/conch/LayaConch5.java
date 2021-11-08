@@ -51,6 +51,7 @@ import android.view.View.OnGenericMotionListener;
 import android.view.View.OnKeyListener;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AbsoluteLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -592,6 +593,9 @@ public class LayaConch5 implements ILayaGameEgine,OnKeyListener {
 			m_pAbsLayout.addView(m_pEditBoxLayout, new ViewGroup.LayoutParams(
 					ViewGroup.LayoutParams.WRAP_CONTENT,
 					ViewGroup.LayoutParams.WRAP_CONTENT));
+
+
+			m_pEditBox.m_pEditBox.setImeOptions(EditorInfo.IME_ACTION_SEND | EditorInfo.IME_FLAG_NO_EXTRACT_UI);
 		}
 
 		LayaVideoPlayer.SetDefaultVideoContext(mCtx, m_pAbsLayout);

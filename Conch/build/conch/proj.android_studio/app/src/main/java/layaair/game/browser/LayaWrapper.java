@@ -29,6 +29,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.EditorInfo;
 import android.webkit.ValueCallback;
 import android.widget.AbsoluteLayout;
 import android.widget.Toast;
@@ -116,6 +117,7 @@ public class LayaWrapper implements ILayaLibWrapper{
 			Log.e("","打开配置文件错误。");
         }*/
 		m_pEngine = new LayaConch5(ms_mCtx);
+
 		m_pEngine.game_conch3_SetIsPlug(false);
 		if (tempSoPath.length()>0) {
 			m_pEngine.setSoPath(tempSoPath);

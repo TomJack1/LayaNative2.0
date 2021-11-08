@@ -780,9 +780,9 @@ public class ExportJavaFunction
 			if( pEditBox != null )
 			{
 
-				if(keyboardType == "password"){
+				if(keyboardType.equals("password")) {
 					pEditBox.setPassWord(true);
-				}else if(keyboardType == "number")  {
+				}else if(keyboardType.equals("number"))  {
 
 					pEditBox.setNumberKeyboardType();
 				}else {
