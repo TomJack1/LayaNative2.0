@@ -414,7 +414,7 @@ public class LayaEditBox
 				//下面两种方式，有的机器用第一种是好用的。。有的用第二种是好用的。
 				//但是如果是用第2种方式，明文和密码切换有问题。。明文也变成密码了。。这种方式太影响用户体验了
 				//所以用第一种方式，但是这种方式，有的时候切换密码不太好用，因为在老谢那边也会处理，显示变成了*。。所以不太影响
-				m_pEditBox.setInputType( InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD & ~InputType.TYPE_CLASS_PHONE);
+				m_pEditBox.setInputType( InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
 			}
 			else
 			{
@@ -433,20 +433,29 @@ public class LayaEditBox
 						{
 							public void run()
 							{
-								m_pEditBox.setInputType(InputType.TYPE_CLASS_PHONE);
+								int type =  m_pEditBox.getInputType() & ~InputType.TYPE_TEXT_VARIATION_PASSWORD & ~InputType.TYPE_CLASS_TEXT  ;
+								if((type & InputType.TYPE_CLASS_PHONE) == 0) {
+									type = type | InputType.TYPE_CLASS_PHONE;
+								}
+								m_pEditBox.setInputType(type);
+
 							}
 						}
 				);
 	}
 	public void  setNomalKeyboardType(){
-
+		m_bPassWord = false;
 		m_Handler.post
 				(
 						new Runnable()
 						{
 							public void run()
 							{
-								m_pEditBox.setInputType(InputType.TYPE_CLASS_TEXT);
+								int type = m_pEditBox.getInputType() & ~InputType.TYPE_TEXT_VARIATION_PASSWORD & ~InputType.TYPE_CLASS_PHONE ;
+								if((type & InputType.TYPE_CLASS_TEXT) == 0) {
+									type = type | InputType.TYPE_CLASS_TEXT;
+								}
+								m_pEditBox.setInputType(type);
 							}
 						}
 				);
