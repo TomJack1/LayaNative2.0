@@ -146,13 +146,26 @@
         [m_textView setBackgroundColor:[UIColor clearColor]];
         m_textView.text = self.content;
         m_textView.autocapitalizationType = self.autocapitalizationType;
-        
+        m_textView.textContainer.lineBreakMode = NSLineBreakByTruncatingMiddle;
 //        m_textView.textContainer.maximumNumberOfLines = m_nMaxLength;
         if(JCScriptRuntime::s_JSRT->m_pCurEditBox != NULL){
             std::string type = JCScriptRuntime::s_JSRT->m_pCurEditBox->m_sType;
-            if(type == "number"){
+            
+            NSString *typeStr= [NSString stringWithCString:type.c_str() encoding:[NSString defaultCStringEncoding]];
+            
+            if([@"number" isEqualToString:typeStr]){
                 m_textView.keyboardType = UIKeyboardTypeNumberPad;
+            }else if ([typeStr hasPrefix:@"maxline"]){
+                NSArray * tempArray = [typeStr componentsSeparatedByString:@"_"];
+                if(tempArray.count == 2){
+                    int line = [tempArray[1] intValue];
+                    m_textView.textContainer.maximumNumberOfLines = line;
+                }
+            }else {
+                m_textView.textContainer.maximumNumberOfLines = 1;
             }
+        }else {
+            m_textView.textContainer.maximumNumberOfLines = 1;
         }
         [m_textView becomeFirstResponder];
     }
