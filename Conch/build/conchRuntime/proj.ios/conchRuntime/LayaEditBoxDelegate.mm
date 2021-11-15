@@ -25,7 +25,7 @@
 {
     // check markedTextRange
     UITextRange *selectedRange = textView.markedTextRange;
-    BOOL checkPosition = [textView positionFromPosition:selectedRange.start offset:0];
+    UITextPosition * checkPosition = [textView positionFromPosition:selectedRange.start offset:0];
     if (checkPosition) {
         return YES;
     }
@@ -38,7 +38,9 @@
     {
         if(![pEditBox getMultiAble]&&[p_sString isEqualToString:@"\n"])
         {
-            [pEditBox resignFirstResponder];
+            
+//            [pEditBox resignFirstResponder];
+            [pEditBox returnKeyboard];
             return NO;
         }
         NSString* sLanguage = [[UITextInputMode currentInputMode]primaryLanguage];
@@ -185,7 +187,7 @@
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)p_sString
 {
     UITextRange *selectedRange = textField.markedTextRange;
-    BOOL checkPosition = [textField positionFromPosition:selectedRange.start offset:0];
+    UITextPosition * checkPosition = [textField positionFromPosition:selectedRange.start offset:0];
     if (checkPosition) {
         return YES;
     }
@@ -199,7 +201,7 @@
     {
         if(![pEditBox getMultiAble]&&[p_sString isEqualToString:@"\n"])
         {
-            [pEditBox resignFirstResponder];
+            [pEditBox returnKeyboard];
             return NO;
         }
         NSString* sLanguage = [[UITextInputMode currentInputMode]primaryLanguage];

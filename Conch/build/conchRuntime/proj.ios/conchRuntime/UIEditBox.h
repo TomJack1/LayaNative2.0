@@ -8,7 +8,7 @@
  */
 #import "UIKit/UIKit.h"
 #import "LayaEditBoxDelegate.h"
-
+#import "CustomButton.h"
 @interface UIEditBox  : UIView
 {
     bool                    m_bNumberOnly;
@@ -19,7 +19,8 @@
     NSRegularExpression*    m_pRegular;
     UITextView*             m_textView;
     UITextField*            m_textFiled;
-    
+    CustomButton * m_touchButton;
+    UIColor * m_textColor;
 }
 @property(nonatomic,strong)UIFont * _tempFont;
 @property(nonatomic,strong)NSString * content;
@@ -28,7 +29,6 @@
 @property(nonatomic,assign)BOOL secureTextEntry;
 @property(nonatomic,strong)NSString * text;
 @property(nonatomic,assign)UITextAutocapitalizationType autocapitalizationType;
-
 @property (nonatomic, weak) id delegate;
 
 
@@ -45,4 +45,5 @@
 -(void)setMultiAble:(bool)p_bMultiAble;
 -(BOOL) getMultiAble;
 -(id)getTextField;
+- (void)returnKeyboard;
 @end

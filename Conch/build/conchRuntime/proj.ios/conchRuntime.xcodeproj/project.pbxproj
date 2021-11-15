@@ -75,11 +75,11 @@
 		A2DE586123C6DC6600A75F34 /* Uri.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A2DE586023C6DC6600A75F34 /* Uri.cpp */; };
 		A2EE055D1C8A77B700A35FB6 /* conchRuntime.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = A2EE055C1C8A77B700A35FB6 /* conchRuntime.h */; };
 		A2EE055F1C8A77B700A35FB6 /* conchRuntime.mm in Sources */ = {isa = PBXBuildFile; fileRef = A2EE055E1C8A77B700A35FB6 /* conchRuntime.mm */; };
-		A2F3B7A1216CAB8B0016F0A2 /* bullet_glue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A2F3B79E216CAB8B0016F0A2 /* bullet_glue.cpp */; };
-		E2CC956926FC261D00C45146 /* UITextField+Limit.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CC956826FC261D00C45146 /* UITextField+Limit.m */; };
 		A2FBA93A2702015300846E17 /* JSObjBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A2FBA9392702015300846E17 /* JSObjBase.cpp */; };
 		A2FBA9402702BC7E00846E17 /* JSWebGLPlus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A2FBA93C2702BC7D00846E17 /* JSWebGLPlus.cpp */; };
 		A2FBA9412702BC7E00846E17 /* JSArrayBufferRef.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A2FBA93D2702BC7D00846E17 /* JSArrayBufferRef.cpp */; };
+		E2617F432742652000021B51 /* CustomButton.mm in Sources */ = {isa = PBXBuildFile; fileRef = E2617F422742652000021B51 /* CustomButton.mm */; };
+		E2CC956926FC261D00C45146 /* UITextField+Limit.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CC956826FC261D00C45146 /* UITextField+Limit.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -240,16 +240,15 @@
 		A2EE05591C8A77B700A35FB6 /* libconchRuntime.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libconchRuntime.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2EE055C1C8A77B700A35FB6 /* conchRuntime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = conchRuntime.h; sourceTree = "<group>"; };
 		A2EE055E1C8A77B700A35FB6 /* conchRuntime.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = conchRuntime.mm; sourceTree = "<group>"; };
-		A2F3B79E216CAB8B0016F0A2 /* bullet_glue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = bullet_glue.cpp; path = ../../../../source/conch/JSWrapper/LayaWrap/Bullet/bullet_glue.cpp; sourceTree = "<group>"; };
-		A2F3B79F216CAB8B0016F0A2 /* bullet_glue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bullet_glue.h; path = ../../../../source/conch/JSWrapper/LayaWrap/Bullet/bullet_glue.h; sourceTree = "<group>"; };
-		A2F3B7A0216CAB8B0016F0A2 /* JSbtBindHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSbtBindHelper.h; path = ../../../../source/conch/JSWrapper/LayaWrap/Bullet/JSbtBindHelper.h; sourceTree = "<group>"; };
-		E2CC956726FC261D00C45146 /* UITextField+Limit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+Limit.h"; sourceTree = "<group>"; };
-		E2CC956826FC261D00C45146 /* UITextField+Limit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Limit.m"; sourceTree = "<group>"; };
 		A2FBA9392702015300846E17 /* JSObjBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = JSObjBase.cpp; path = ../../../../source/conch/JSWrapper/JSInterface/JSObjBase.cpp; sourceTree = "<group>"; };
 		A2FBA93C2702BC7D00846E17 /* JSWebGLPlus.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = JSWebGLPlus.cpp; path = ../../../../source/conch/JSWrapper/LayaWrap/JSWebGLPlus.cpp; sourceTree = "<group>"; };
 		A2FBA93D2702BC7D00846E17 /* JSArrayBufferRef.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = JSArrayBufferRef.cpp; path = ../../../../source/conch/JSWrapper/LayaWrap/JSArrayBufferRef.cpp; sourceTree = "<group>"; };
 		A2FBA93E2702BC7E00846E17 /* JSArrayBufferRef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSArrayBufferRef.h; path = ../../../../source/conch/JSWrapper/LayaWrap/JSArrayBufferRef.h; sourceTree = "<group>"; };
 		A2FBA93F2702BC7E00846E17 /* JSWebGLPlus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSWebGLPlus.h; path = ../../../../source/conch/JSWrapper/LayaWrap/JSWebGLPlus.h; sourceTree = "<group>"; };
+		E2617F412742652000021B51 /* CustomButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomButton.h; sourceTree = "<group>"; };
+		E2617F422742652000021B51 /* CustomButton.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CustomButton.mm; sourceTree = "<group>"; };
+		E2CC956726FC261D00C45146 /* UITextField+Limit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+Limit.h"; sourceTree = "<group>"; };
+		E2CC956826FC261D00C45146 /* UITextField+Limit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Limit.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -326,6 +325,8 @@
 				A2C56ADD1C8ADB5A009DDC1D /* TouchFilter.h */,
 				A2C56ADE1C8ADB5A009DDC1D /* UIEditBox.h */,
 				A2C56ADF1C8ADB5A009DDC1D /* UIEditBox.mm */,
+				E2617F412742652000021B51 /* CustomButton.h */,
+				E2617F422742652000021B51 /* CustomButton.mm */,
 				E2CC956726FC261D00C45146 /* UITextField+Limit.h */,
 				E2CC956826FC261D00C45146 /* UITextField+Limit.m */,
 				A2C56AB41C8ADAB9009DDC1D /* Reachability */,
@@ -613,6 +614,7 @@
 				TargetAttributes = {
 					A2EE05581C8A77B700A35FB6 = {
 						CreatedOnToolsVersion = 7.2.1;
+						LastSwiftMigration = 1250;
 					};
 				};
 			};
@@ -703,6 +705,7 @@
 				A2729C9A1D20C51C00EC01E6 /* JSHistory.cpp in Sources */,
 				A2C56AE71C8ADB5A009DDC1D /* UIEditBox.mm in Sources */,
 				A2D11A221D0C402F004C229D /* JCIOSFreeType.cpp in Sources */,
+				E2617F432742652000021B51 /* CustomButton.mm in Sources */,
 				A2D119DF1D0BCA70004C229D /* JSTextMemoryCanvas.cpp in Sources */,
 				A247BC01237109FB009B1189 /* LayaBulletExportImp.cpp in Sources */,
 				A2D8F38F218C1D6E00E232A9 /* JSVideo_IOSImpl.cpp in Sources */,
@@ -815,12 +818,14 @@
 		A2EE05631C8A77B700A35FB6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 					JS_JSC,
 				);
 				INSTALL_PATH = /Users/LayaBox/LayaBox/conch5/Trunk/ThirdParty/ios/lib;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_CFLAGS = (
 					"-I../../../include/common",
 					"-I../../../../ThirdParty/freetype/include/ios",
@@ -838,6 +843,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				VALID_ARCHS = "arm64 armv7 i386 x86_64";
 			};
 			name = Debug;
@@ -845,9 +852,11 @@
 		A2EE05641C8A77B700A35FB6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = JS_JSC;
 				INSTALL_PATH = /Users/LayaBox/LayaBox/conch5/Trunk/ThirdParty/ios/lib;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_CFLAGS = (
 					"-I../../../include/common",
 					"-I../../../../ThirdParty/freetype/include/ios",
@@ -865,6 +874,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
 				VALID_ARCHS = "arm64 armv7 i386 x86_64";
 			};
 			name = Release;

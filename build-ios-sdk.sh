@@ -197,6 +197,3 @@ cp -rf ./Conch/include/conchRuntime/ ./publish/nativetools/template/ios/LayaRunt
 rm -rf ./publish/nativetools/template/ios/LayaRuntime-iOS/resource
 mkdir ./publish/nativetools/template/ios/LayaRuntime-iOS/resource
 cp -rf ./Conch/build/conch/proj.ios/resource ./publish/nativetools/template/ios/LayaBox/
-
-
-

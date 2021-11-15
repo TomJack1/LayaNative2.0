@@ -9,7 +9,6 @@
 
 #import "UIEditBox.h"
 #import "JCScriptRuntime.h"
-
 //-------------------------------------------------------------------------------
 @implementation UIEditBox
 //-------------------------------------------------------------------------------
@@ -23,6 +22,9 @@
     m_bIsMultiAble=false;
     //[self setRegular:@"\\d+"];
     m_bForbidEdit = false;
+    m_touchButton = [[CustomButton alloc]initWithFrame:CGRectZero];
+    [m_touchButton addTarget:self action:@selector(controlTouched:withEvent:) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:m_touchButton];
     return self;
 }
 //-------------------------------------------------------------------------------
@@ -89,6 +91,10 @@
 }
 
 -(NSString *)text {
+    return  [self performSelector:@selector(priviteText)];
+    
+}
+- (NSString *)priviteText{
     if (self.secureTextEntry) {
         return  m_textFiled.text;
     }else {
@@ -114,6 +120,23 @@
         }
     }
 }
+-(void)setTextColor:(UIColor *)textColor {
+    
+    m_textColor = textColor;
+    
+    if (self.secureTextEntry){
+        if(m_textFiled){
+            m_textFiled.textColor = textColor;
+        }
+    }else {
+        if(m_textView){
+            m_textView.textColor = textColor;
+        }
+    }
+}
+-(UIColor *)textColor {
+    return m_textColor;
+}
 
 
 //创建View
@@ -131,6 +154,7 @@
         m_textFiled.backgroundColor = [UIColor clearColor];
         m_textFiled.secureTextEntry = true;
         m_textFiled.text = self.content;
+        m_textFiled.returnKeyType = UIReturnKeyDone;
         m_textFiled.autocapitalizationType = self.autocapitalizationType;
         [m_textFiled addTarget:self.delegate action:@selector(textFieldDidChanged:) forControlEvents:UIControlEventEditingChanged];
         [m_textFiled becomeFirstResponder];
@@ -144,10 +168,10 @@
         m_textView.showsVerticalScrollIndicator = false;
         m_textView.showsHorizontalScrollIndicator = false;
         [m_textView setBackgroundColor:[UIColor clearColor]];
+        m_textView.returnKeyType = UIReturnKeyDone;
         m_textView.text = self.content;
         m_textView.autocapitalizationType = self.autocapitalizationType;
         m_textView.textContainer.lineBreakMode = NSLineBreakByTruncatingMiddle;
-//        m_textView.textContainer.maximumNumberOfLines = m_nMaxLength;
         if(JCScriptRuntime::s_JSRT->m_pCurEditBox != NULL){
             std::string type = JCScriptRuntime::s_JSRT->m_pCurEditBox->m_sType;
             
@@ -160,6 +184,8 @@
                 if(tempArray.count == 2){
                     int line = [tempArray[1] intValue];
                     m_textView.textContainer.maximumNumberOfLines = line;
+                }else {
+                    m_textView.textContainer.maximumNumberOfLines = 1;
                 }
             }else {
                 m_textView.textContainer.maximumNumberOfLines = 1;
@@ -172,16 +198,34 @@
     return [super becomeFirstResponder];
 }
 - (BOOL)resignFirstResponder {
-    
+//    if(JCScriptRuntime::s_JSRT->m_pCurEditBox!=NULL)
+//    {
+//        JCScriptRuntime::s_JSRT->m_pCurEditBox->blur();
+//    }
+   
+    BOOL isOk;
     if (m_textView) {
+
+        isOk = [m_textView resignFirstResponder];
         [m_textView removeFromSuperview];
         m_textView = nil;
     }
     if(m_textFiled){
+        isOk = [m_textFiled resignFirstResponder];
         [m_textFiled removeTarget:self.delegate action:@selector(textFieldDidChanged:) forControlEvents:UIControlEventEditingChanged];
         [m_textFiled removeFromSuperview];
         m_textFiled = nil;
     }
-    return [super resignFirstResponder];
+   
+    return isOk;
+}
+- (void)returnKeyboard{
+    [m_touchButton sendActionsForControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void) controlTouched:(CustomButton *)button withEvent:(UIEvent *)event {
+
+    [button sendTauchWindowWithEvent:event];
+   
 }
 @end

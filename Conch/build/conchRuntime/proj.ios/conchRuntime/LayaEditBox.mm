@@ -76,7 +76,7 @@
     if( m_pEditBox != nil )
     {
         [m_pEditBox setBounds:CGRectMake(0,0,m_nWidth,m_nHeight) ];
-        [m_pEditBox setCenter:CGPointMake(m_nPosX+m_nWidth/2,m_nPoyY+m_nHeight/2) ];
+        [m_pEditBox setCenter:CGPointMake(m_nPosX+m_nWidth/2,m_nPoyY+m_nHeight/2 +(4.0/[UIScreen mainScreen].scale))];
     }
 }
 //-------------------------------------------------------------------------------

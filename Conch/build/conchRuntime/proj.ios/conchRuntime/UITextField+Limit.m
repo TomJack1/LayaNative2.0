@@ -261,7 +261,7 @@
 - (void)textFieldDidChanged:(UITextField *)textField {
     
     UITextRange *selectedRange = textField.markedTextRange;
-    BOOL checkPosition = [textField positionFromPosition:selectedRange.start offset:0];
+    UITextPosition * checkPosition = [textField positionFromPosition:selectedRange.start offset:0];
     
     if (checkPosition) {
         return;
@@ -279,7 +279,7 @@
     
     // check markedTextRange
     UITextRange *selectedRange = textField.markedTextRange;
-    BOOL checkPosition = [textField positionFromPosition:selectedRange.start offset:0];
+    UITextPosition * checkPosition = [textField positionFromPosition:selectedRange.start offset:0];
     if (checkPosition) {
         return YES;
     }
@@ -565,7 +565,7 @@
 - (void)textViewDidChanged:(UITextView *)textView {
     
     UITextRange *selectedRange = textView.markedTextRange;
-    BOOL checkPosition = [textView positionFromPosition:selectedRange.start offset:0];
+    UITextPosition * checkPosition = [textView positionFromPosition:selectedRange.start offset:0];
     
     if (checkPosition) {
         return;
@@ -587,7 +587,7 @@
     
     // check markedTextRange
     UITextRange *selectedRange = textView.markedTextRange;
-    BOOL checkPosition = [textView positionFromPosition:selectedRange.start offset:0];
+    UITextPosition * checkPosition = [textView positionFromPosition:selectedRange.start offset:0];
     if (checkPosition) {
         return YES;
     }
