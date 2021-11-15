@@ -19,12 +19,13 @@ import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnKeyListener;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AbsoluteLayout;
 import android.widget.EditText;
+import android.widget.TextView;
 
-public class LayaEditBox 
-{
+public class LayaEditBox  {
 	public EditText 					m_pEditBox = null;
 	public Context						m_pApplication = null;
 	public int							m_nPosX = 0;
@@ -816,4 +817,6 @@ public class LayaEditBox
 			}
 		);
 	}
+
+
 }

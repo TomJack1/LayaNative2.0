@@ -3,6 +3,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.inputmethod.EditorInfo;
 import android.widget.TextView;
 
 public class LayaEditBoxWatcher implements TextWatcher,TextView.OnEditorActionListener
@@ -76,8 +77,29 @@ public class LayaEditBoxWatcher implements TextWatcher,TextView.OnEditorActionLi
     	if(paramInt==KeyEvent.KEYCODE_ENDCALL)
     	{
     		ConchJNI.inputChange(paramInt);
-    	}
+    	}else if(paramInt == KeyEvent.KEYCODE_BACK){
+			int ny = (int)paramTextView.getY();
+			ConchJNI.handleTouch(0, 0, 0, ny);
+			ConchJNI.handleTouch(1, 0, 0, ny);
+//			switch (paramInt){
+//				case EditorInfo
+//						.IME_ACTION_SEARCH:
+//				case EditorInfo
+//						.IME_ACTION_DONE:
+//				case EditorInfo
+//						.IME_ACTION_GO:
+//				case EditorInfo
+//						.IME_ACTION_NEXT:
+//				case EditorInfo
+//						.IME_ACTION_SEND:
+//
+//					return true;
+//				default:
+//					break;
+//			}
+		}
     	return false;
     }
+
     //-------------------------------------------------------------------
 }

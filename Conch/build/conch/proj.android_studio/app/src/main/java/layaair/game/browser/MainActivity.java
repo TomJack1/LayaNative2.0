@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
 //		mLayaEngine.setOptions(_option);
 //		mLayaEngine.setGameUrl("http://10.10.30.29:8888/starthtml/index4.html");
 //		mLayaEngine.setGameUrl("http://192.168.0.106:8888/starthtml/default1.html");
-		mLayaEngine.setGameUrl("http://192.168.31.69:8901/bin/index.js");
+		mLayaEngine.setGameUrl("http://192.168.31.69:8900/bin/index.js");
 		mLayaEngine.startGame();
 
 //		LayaConch5 tmp = (LayaConch5)mLayaEngine;
