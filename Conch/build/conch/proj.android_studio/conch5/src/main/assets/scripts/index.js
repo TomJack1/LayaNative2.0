@@ -353,4 +353,46 @@ window['updateByZip'] = function (url, onEvent, onEnd) {
         }
     }, 10, 100000000);
 };
+
+window['downImageByZip'] = function (url,call,callFunc) {
+    let cachePath = conch.getCachePath();
+    let localfile = cachePath + url.substr(url.lastIndexOf('/'));
+
+    //console.log(cachePath + "------------" + localfile + "mmmmmmm"  + url.substr(url.lastIndexOf('/')));
+
+    downloadBigFile(url, localfile, (total, now, speed) => {
+
+        callFunc.apply(call,['downloading',Math.floor((now / total) * 100)])
+
+        //onEvent('downloading',call,callFunc,Math.floor((now / total) * 100));
+        return false;
+    }, (curlret, httpret) => {
+        if (curlret != 0 || httpret < 200 || httpret >= 300) {
+
+            callFunc.apply(call,['downloadError']);
+            //onEvent('downloadError');
+        }
+        else {
+            callFunc.apply(call,['downloadOK']);
+            //onEvent('downloadOK',call,callFunc);
+        }
+    }, 10, 100000000);
+};
+
+window['downImage'] = function (url, call, callFunc, onEvent) {
+    let cachePath = conch.getCachePath();
+    let localfile = cachePath + "/images/" + url.substr(url.lastIndexOf('images/'));
+    downloadBigFile(url, localfile, (total, now, speed) => {
+        onEvent('10000',call,callFunc, Math.floor((now / total) * 100), null);
+        return false;
+    }, (curlret, httpret) => {
+        if (curlret != 0 || httpret < 200 || httpret >= 300) {
+            onEvent('404',call,callFunc);
+        }
+        else {
+            onEvent('200',call,callFunc);
+        }
+    }, 10, 100000000);
+};
+
 loadApp(conch.presetUrl || "http://nativetest.layabox.com/layaplayer2.0.1/index.js");
