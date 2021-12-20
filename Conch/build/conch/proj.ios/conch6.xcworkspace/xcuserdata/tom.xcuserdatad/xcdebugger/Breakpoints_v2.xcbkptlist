@@ -30,25 +30,9 @@
             filePath = "../../conchRuntime/proj.ios/conchRuntime/conchRuntime.mm"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "577"
-            endingLineNumber = "577"
+            startingLineNumber = "581"
+            endingLineNumber = "581"
             landmarkName = "-touchesEnded:withEvent:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8823A7EA-C00B-437F-B088-A7F55DB5F076"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../conchRuntime/proj.ios/conchRuntime/conchRuntime.mm"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "523"
-            endingLineNumber = "523"
-            landmarkName = "-HandleTouchEnd:state:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -62,8 +46,8 @@
             filePath = "../../conchRuntime/proj.ios/conchRuntime/conchRuntime.mm"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "562"
-            endingLineNumber = "562"
+            startingLineNumber = "566"
+            endingLineNumber = "566"
             landmarkName = "-HandleTouchEnd:state:"
             landmarkType = "7">
          </BreakpointContent>

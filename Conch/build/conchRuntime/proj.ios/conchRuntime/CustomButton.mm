@@ -35,24 +35,19 @@
 //}
 - (void)sendTauchWindowWithEvent:(UIEvent *)event{
     conchRuntime * a = [conchRuntime GetIOSConchRuntime];
- 
-    CGPoint point = [self.superview convertPoint:self.frame.origin toView:[UIApplication sharedApplication].windows.lastObject];
-    
-//    CGPoint kTouchLocation = [touch locationInView:[UIApplication sharedApplication].keyWindow];
     IOSTouch kIOSTouch;
     kIOSTouch.m_nType = TOUCH_BEGAIN;
     kIOSTouch.m_nID[0] = 0;
-    kIOSTouch.m_nX[0] = 0;
-    kIOSTouch.m_nY[0] = point.y - 60;
+    kIOSTouch.m_nX[0] = 90;
+    kIOSTouch.m_nY[0] = self.superview.frame.origin.y;
     kIOSTouch.m_nCount = 1;
     a->m_pTouchFilter->onTouchEvent( kIOSTouch, a->m_fRetinaValue,a->m_nGLViewOffset);
     IOSTouch kLastTouch;//要发送的end
     kLastTouch.m_nType = TOUCHE_END;
     kLastTouch.m_nCount = 1;
     kLastTouch.m_nID[0] = 0;
-    kLastTouch.m_nX[0] = 0;
-    kLastTouch.m_nY[0] = point.y - 60;
+    kLastTouch.m_nX[0] = 90;
+    kLastTouch.m_nY[0] = self.superview.frame.origin.y;
     a->m_pTouchFilter->onTouchEvent( kLastTouch, a->m_fRetinaValue,a->m_nGLViewOffset);
-
 }
 @end

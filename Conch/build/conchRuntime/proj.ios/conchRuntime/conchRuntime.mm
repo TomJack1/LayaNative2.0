@@ -426,6 +426,9 @@ void AudioEngineInterruptionListenerCallback(void* user_data, UInt32 interruptio
         {
             UITouch* pSysTouch = [[allTouches allObjects] objectAtIndex:i];
             CGPoint kTouchLocation = [pSysTouch locationInView:[pSysTouch view]];
+            
+            NSLog(@"began touchx:%f touchy:%f",kTouchLocation.x,kTouchLocation.y);
+            
             int nID = [self AddTouchToArray:pSysTouch];
             if( nID != -1 )
             {
@@ -535,6 +538,7 @@ void AudioEngineInterruptionListenerCallback(void* user_data, UInt32 interruptio
         if( p_nState == -1 || pSysTouch.phase == p_nState )
         {
             CGPoint kTouchLocation = [pSysTouch locationInView:[pSysTouch view]];
+            NSLog(@"end touchx:%f touchy:%f",kTouchLocation.x,kTouchLocation.y);
             int nID = [self RemoveTouchToArray:pSysTouch];
             if( nID != -1 )
             {
