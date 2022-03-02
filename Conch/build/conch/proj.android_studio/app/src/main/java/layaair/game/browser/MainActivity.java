@@ -11,14 +11,17 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
+//import android.support.annotation.NONEonNull;
+//import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
@@ -238,24 +241,24 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == PermisionUtils.REQUEST_EXTERNAL_STORAGEP_ERMISSION_CODE) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                mLayaEngine.checkApkUpdate();
-            }
-            else {
-				AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+		super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+		if (requestCode == PermisionUtils.REQUEST_EXTERNAL_STORAGEP_ERMISSION_CODE) {
+			if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+				mLayaEngine.checkApkUpdate();
+			} else {
+				Builder dialog = new Builder(this);
 				dialog.setTitle(R.string.waring);
 				dialog.setMessage(R.string.permission_waring);
-				dialog.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+				dialog.setPositiveButton(R.string.ok, new OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
 						mLayaEngine.checkApkUpdate();
 					}
 				});
 				dialog.show();
-            }
-        }
-    }
+			}
+		}
+	}
 	static class layaGameListener implements ILayaEventListener{
 		public  Activity activity;
 		@Override

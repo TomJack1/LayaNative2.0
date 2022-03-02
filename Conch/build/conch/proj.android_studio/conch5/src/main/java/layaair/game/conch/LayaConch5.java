@@ -675,7 +675,6 @@ public class LayaConch5 implements ILayaGameEgine,OnKeyListener {
 
 	/**
 	 * 判断activity是否处于可用状态
-	 * @param context
 	 * @return
 	 */
 	private boolean isFinishing(Activity activity)

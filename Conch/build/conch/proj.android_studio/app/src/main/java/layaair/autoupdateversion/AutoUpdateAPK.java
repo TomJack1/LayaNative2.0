@@ -28,6 +28,9 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.webkit.ValueCallback;
+
+import androidx.core.content.FileProvider;
+
 import layaair.autoupdateversion.data.VersionData;
 import layaair.game.config.config;
 
@@ -124,7 +127,9 @@ public class AutoUpdateAPK {
 		File file = new File(m_szDownloadPath, m_szDownloadAPKName);
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
             intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            Uri contentUri = android.support.v4.content.FileProvider.getUriForFile(m_context, "com.layabox.conch6.fileprovider", file);
+
+			Uri contentUri = FileProvider.getUriForFile(m_context, "com.layabox.conch6.fileprovider", file);
+//            Uri contentUri = android.support.v4.content.FileProvider.getUriForFile(m_context, "com.layabox.conch6.fileprovider", file);
             intent.setDataAndType(contentUri, "application/vnd.android.package-archive");
         } else {
             intent.setDataAndType(

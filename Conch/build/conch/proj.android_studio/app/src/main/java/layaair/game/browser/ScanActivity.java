@@ -4,9 +4,13 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+//import android.support.v7.app.AppCompatActivity;
+//import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
+import android.widget.Toolbar;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.journeyapps.barcodescanner.CaptureManager;
 import com.journeyapps.barcodescanner.DecoratedBarcodeView;
 import com.layabox.conch6.R;
@@ -26,7 +30,7 @@ public class ScanActivity extends AppCompatActivity   {
         setContentView(R.layout.activity_scan);
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_awesome_toolbar);
         toolbar.setTitle("");
-        setSupportActionBar(toolbar);
+//        setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         barcodeScannerView = (DecoratedBarcodeView)findViewById(R.id.zxing_barcode_scanner);

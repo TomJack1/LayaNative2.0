@@ -24,7 +24,7 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.net.ConnectivityManager;
 import android.os.Build;
-import android.support.v4.content.ContextCompat;
+//import android.support.v4.content.ContextCompatat;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
@@ -33,6 +33,8 @@ import android.view.inputmethod.EditorInfo;
 import android.webkit.ValueCallback;
 import android.widget.AbsoluteLayout;
 import android.widget.Toast;
+
+import androidx.core.content.ContextCompat;
 
 import java.io.File;
 import java.io.FileOutputStream;
