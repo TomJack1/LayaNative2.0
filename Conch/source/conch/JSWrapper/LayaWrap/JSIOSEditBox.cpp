@@ -281,19 +281,38 @@ void JSIOSEditBox::addEventListener(const char* p_sName, JSValueAsParam p_pFunct
     {
         m_pJSFunctionOnInput.set(0,this,p_pFunction);
     }
+    if(strcmp(p_sName,"deletekey")==0){
+        m_pJSFunctionOnInputDelete.set(0, this, p_pFunction);
+    }
 }
 void JSIOSEditBox::onInput()
 {
     std::weak_ptr<int> cbref(m_CallbackRef);
     std::function<void(void)>pFunction =std::bind(&JSIOSEditBox::onInputCallJSFunction,this,cbref);
     JCScriptRuntime::s_JSRT->m_pScriptThread->post(pFunction);
-}  
+}
+void JSIOSEditBox::onInputDeleteKey()
+{
+    std::weak_ptr<int> cbref(m_CallbackRef);
+    std::function<void(void)>pFunction =std::bind(&JSIOSEditBox::onInputDeleteKeyCallJSFunction,this,cbref);
+    JCScriptRuntime::s_JSRT->m_pScriptThread->post(pFunction);
+}
+
 void JSIOSEditBox::onInputCallJSFunction(std::weak_ptr<int> callbackref)
 {
     if(!callbackref.lock())
         return;
     m_pJSFunctionOnInput.Call();
 }
+
+
+void JSIOSEditBox::onInputDeleteKeyCallJSFunction(std::weak_ptr<int> callbackref)
+{
+    if(!callbackref.lock())
+        return;
+    m_pJSFunctionOnInputDelete.Call();
+}
+
 void JSIOSEditBox::setMultiAble(bool p_bMultiAble)
 {
     CToObjectCSetEditBoxMultiAble(p_bMultiAble);

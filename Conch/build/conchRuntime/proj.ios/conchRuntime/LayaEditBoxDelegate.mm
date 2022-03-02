@@ -16,6 +16,7 @@
 #import "JCScriptRuntime.h"
 #import "LayaEditBox.h"
 
+
 //-------------------------------------------------------------------------------
 @implementation LayaEditBoxDelegate
 
@@ -377,6 +378,11 @@
     [self postToC];
 }
 
-
-
+- (void)deleteBackWard:(UITextView *)txt{
+    
+    if(JCScriptRuntime::s_JSRT->m_pCurEditBox!=NULL)
+    {
+        JCScriptRuntime::s_JSRT->m_pCurEditBox->onInputDeleteKey();
+    }
+}
 @end

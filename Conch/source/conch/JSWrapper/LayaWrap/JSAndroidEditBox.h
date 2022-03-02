@@ -125,8 +125,10 @@ public:
     void setMultiAble(bool p_bMultiAble);
 
     void onInputCallJSFunction(std::weak_ptr<int> callbackref);
-
-    void onInput();
+	void onInputDeleteKeyCallJSFunction(std::weak_ptr<int> callbackref);
+    
+	void onInput();
+	void onInputDeleteKey();
 	
 public:
 
@@ -148,6 +150,7 @@ public:
 private:
     std::shared_ptr<int>  m_CallbackRef;
     JsObjHandle     m_pJSFunctionOnInput;//JS的回调                                //4
+	JsObjHandle     m_pJSFunctionOnInputDeleteKey;
 };
 }
 //------------------------------------------------------------------------------

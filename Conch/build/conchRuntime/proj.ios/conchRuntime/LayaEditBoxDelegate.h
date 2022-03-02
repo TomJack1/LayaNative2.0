@@ -8,8 +8,9 @@
  */
 #import <UIKit/UIKit.h>
 #import <GLKit/GLKit.h>
+#import "KeyInputDelegate.h"
 
-@interface LayaEditBoxDelegate  : NSObject <UITextViewDelegate,UITextFieldDelegate>
+@interface LayaEditBoxDelegate  : NSObject <UITextViewDelegate,UITextFieldDelegate,KeyInputDelegate>
 {
 @public
     float   m_fRetinaValue;

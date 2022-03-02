@@ -56,7 +56,9 @@ void JSAndroidEditBox::addEventListener(const char* p_sName, JSValueAsParam p_pF
     else if(strcmp( p_sName,"keydown" ) == 0)
     {
         //m_pJSFunctionOnKeydown=p_pFunction;
-    }
+    }else if( strcmp( p_sName,"deletekey" ) == 0){
+		m_pJSFunctionOnInputDeleteKey.set(0,this,p_pFunction);
+	}
 }
 //------------------------------------------------------------------------------
 int JSAndroidEditBox::set_Left( int p_nLeft )
@@ -319,6 +321,14 @@ void  JSAndroidEditBox::onInputCallJSFunction(std::weak_ptr<int> callbackref)
         return;
     m_pJSFunctionOnInput.Call();
 }
+void  JSAndroidEditBox::onInputDeleteKeyCallJSFunction(std::weak_ptr<int> callbackref)
+{
+    if( !callbackref.lock())
+        return;
+    m_pJSFunctionOnInputDeleteKey.Call();
+}
+
+
 //------------------------------------------------------------------------------
 void JSAndroidEditBox::onInput()
 {
@@ -326,6 +336,15 @@ void JSAndroidEditBox::onInput()
     std::function<void(void)> pFunction = std::bind(&JSAndroidEditBox::onInputCallJSFunction,this, cbref);
     JCScriptRuntime::s_JSRT->m_pScriptThread->post( pFunction );
 }
+
+void JSAndroidEditBox::onInputDeleteKey()
+{
+    std::weak_ptr<int> cbref(m_CallbackRef);
+    std::function<void(void)> pFunction = std::bind(&JSAndroidEditBox::onInputDeleteKeyCallJSFunction,this, cbref);
+    JCScriptRuntime::s_JSRT->m_pScriptThread->post( pFunction );
+}
+
+
 void JSAndroidEditBox::setMultiAble(bool p_bMultiAble)
 {
     CToJavaBridge::JavaRet kRet;

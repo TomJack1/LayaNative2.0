@@ -9,6 +9,8 @@
 #import "UIKit/UIKit.h"
 #import "LayaEditBoxDelegate.h"
 #import "CustomButton.h"
+#import "CustomTextView.h"
+#import "CustomTextField.h"
 @interface UIEditBox  : UIView
 {
     bool                    m_bNumberOnly;
@@ -17,8 +19,8 @@
     int                     m_nMaxLength;
     NSString*               m_sRegular;
     NSRegularExpression*    m_pRegular;
-    UITextView*             m_textView;
-    UITextField*            m_textFiled;
+    CustomTextView*             m_textView;
+    CustomTextField*            m_textFiled;
     CustomButton * m_touchButton;
     UIColor * m_textColor;
 }

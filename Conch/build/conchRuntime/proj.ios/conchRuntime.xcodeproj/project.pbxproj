@@ -79,6 +79,8 @@
 		A2FBA9402702BC7E00846E17 /* JSWebGLPlus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A2FBA93C2702BC7D00846E17 /* JSWebGLPlus.cpp */; };
 		A2FBA9412702BC7E00846E17 /* JSArrayBufferRef.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A2FBA93D2702BC7D00846E17 /* JSArrayBufferRef.cpp */; };
 		E2617F432742652000021B51 /* CustomButton.mm in Sources */ = {isa = PBXBuildFile; fileRef = E2617F422742652000021B51 /* CustomButton.mm */; };
+		E28281B627CE098A00CEA1CD /* CustomTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E28281B527CE098A00CEA1CD /* CustomTextView.m */; };
+		E28281B927CE0F8F00CEA1CD /* CustomTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = E28281B827CE0F8F00CEA1CD /* CustomTextField.m */; };
 		E2CC956926FC261D00C45146 /* UITextField+Limit.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CC956826FC261D00C45146 /* UITextField+Limit.m */; };
 /* End PBXBuildFile section */
 
@@ -247,6 +249,11 @@
 		A2FBA93F2702BC7E00846E17 /* JSWebGLPlus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSWebGLPlus.h; path = ../../../../source/conch/JSWrapper/LayaWrap/JSWebGLPlus.h; sourceTree = "<group>"; };
 		E2617F412742652000021B51 /* CustomButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomButton.h; sourceTree = "<group>"; };
 		E2617F422742652000021B51 /* CustomButton.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CustomButton.mm; sourceTree = "<group>"; };
+		E28281B427CE098A00CEA1CD /* CustomTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomTextView.h; sourceTree = "<group>"; };
+		E28281B527CE098A00CEA1CD /* CustomTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTextView.m; sourceTree = "<group>"; };
+		E28281B727CE0F8F00CEA1CD /* CustomTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomTextField.h; sourceTree = "<group>"; };
+		E28281B827CE0F8F00CEA1CD /* CustomTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTextField.m; sourceTree = "<group>"; };
+		E28281BA27CE0FB600CEA1CD /* KeyInputDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyInputDelegate.h; sourceTree = "<group>"; };
 		E2CC956726FC261D00C45146 /* UITextField+Limit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+Limit.h"; sourceTree = "<group>"; };
 		E2CC956826FC261D00C45146 /* UITextField+Limit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Limit.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -329,6 +336,11 @@
 				E2617F422742652000021B51 /* CustomButton.mm */,
 				E2CC956726FC261D00C45146 /* UITextField+Limit.h */,
 				E2CC956826FC261D00C45146 /* UITextField+Limit.m */,
+				E28281B427CE098A00CEA1CD /* CustomTextView.h */,
+				E28281B527CE098A00CEA1CD /* CustomTextView.m */,
+				E28281B727CE0F8F00CEA1CD /* CustomTextField.h */,
+				E28281B827CE0F8F00CEA1CD /* CustomTextField.m */,
+				E28281BA27CE0FB600CEA1CD /* KeyInputDelegate.h */,
 				A2C56AB41C8ADAB9009DDC1D /* Reachability */,
 				A2C56AB21C8ADAA8009DDC1D /* Notification */,
 				A2C56AB01C8ADA80009DDC1D /* Audio */,
@@ -677,6 +689,7 @@
 				A2D119E61D0BCA70004C229D /* XMLHttpRequest.cpp in Sources */,
 				A2D119DC1D0BCA70004C229D /* JSRuntime.cpp in Sources */,
 				A247BC00237109FB009B1189 /* LayaBulletExport.cpp in Sources */,
+				E28281B927CE0F8F00CEA1CD /* CustomTextField.m in Sources */,
 				A2D1197B1D0BCA06004C229D /* JCConchRender.cpp in Sources */,
 				A2D8F386218C036F00E232A9 /* LayaVideoPlayer.mm in Sources */,
 				A25F7B2F219AB6DC004FA571 /* IVideoRenderTarget.m in Sources */,
@@ -717,6 +730,7 @@
 				A2DE586123C6DC6600A75F34 /* Uri.cpp in Sources */,
 				A2D119D11D0BCA70004C229D /* JSFile.cpp in Sources */,
 				A2D119E51D0BCA70004C229D /* JSZip.cpp in Sources */,
+				E28281B627CE098A00CEA1CD /* CustomTextView.m in Sources */,
 				A2D119D51D0BCA70004C229D /* JSImage.cpp in Sources */,
 				5E7AB4D71DD2CE2B001AE49F /* LayaScreenShotter.mm in Sources */,
 				A2C56AB71C8ADAD3009DDC1D /* Reachability.m in Sources */,

@@ -26,7 +26,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class LayaEditBox  {
-	public EditText 					m_pEditBox = null;
+	public InputEditText 					m_pEditBox = null;
 	public Context						m_pApplication = null;
 	public int							m_nPosX = 0;
 	public int							m_nPosY = 0;
@@ -120,7 +120,7 @@ public class LayaEditBox  {
 		m_pEditBox.setVisibility( m_pEditBox.VISIBLE );
 		*/
 		
-		m_pEditBox = new EditText( m_pApplication );
+		m_pEditBox = new InputEditText( m_pApplication );
 		m_pEditBox.setBackgroundColor( 0xffffffff );
 		m_pEditBox.setBackgroundDrawable(null);
 		m_pEditBox.setVisibility(  m_pEditBox.INVISIBLE );
@@ -610,11 +610,15 @@ public class LayaEditBox  {
 					m_pEditBox.setOnKeyListener(new OnKeyListener() {
 						@Override
 						public boolean onKey(View v, int keyCode, KeyEvent event) {
+							if(event.getAction() == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_DEL){
+								ConchJNI.inputChange(KeyEvent.KEYCODE_DEL);
+							}
 							if( keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN ){
 								Log.i(TAG,"onKey = "+keyCode);
 								setFocus(false);
 								return true;
 							}
+
 							return false;
 						}
 					});

@@ -145,12 +145,13 @@
     
     
     if (self.secureTextEntry) {
-        m_textFiled = [[UITextField alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+        m_textFiled = [[CustomTextField alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
         [self addSubview:m_textFiled];
         m_textFiled.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
         m_textFiled.font = self.font;
         m_textFiled.textColor = self.textColor;
         m_textFiled.delegate = self.delegate;
+        m_textFiled.keyInputDelegates = self.delegate;
         m_textFiled.backgroundColor = [UIColor clearColor];
         m_textFiled.secureTextEntry = true;
         m_textFiled.text = self.content;
@@ -159,12 +160,13 @@
         [m_textFiled addTarget:self.delegate action:@selector(textFieldDidChanged:) forControlEvents:UIControlEventEditingChanged];
         [m_textFiled becomeFirstResponder];
     }else {
-        m_textView = [[UITextView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+        m_textView = [[CustomTextView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
         [self addSubview:m_textView];
         m_textView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
         m_textView.font = self.font;
         m_textView.textColor = self.textColor;
         m_textView.delegate = self.delegate;
+        m_textView.keyInputDelegates = self.delegate;
         m_textView.showsVerticalScrollIndicator = false;
         m_textView.showsHorizontalScrollIndicator = false;
         [m_textView setBackgroundColor:[UIColor clearColor]];

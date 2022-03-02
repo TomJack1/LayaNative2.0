@@ -1,4 +1,4 @@
-﻿/**
+/**
 @file			JSIOSEditBox.h
 @brief			
 @author			wyw
@@ -125,8 +125,10 @@ public:
     void setMultiAble(bool p_bMultiAble);
     
     void onInputCallJSFunction(std::weak_ptr<int> callbackref);
+    void onInputDeleteKeyCallJSFunction(std::weak_ptr<int> callbackref);
     
     void onInput();
+    void onInputDeleteKey();
 	
 public:
 
@@ -149,6 +151,7 @@ public:
 private:
     std::shared_ptr<int> m_CallbackRef;
     JsObjHandle            m_pJSFunctionOnInput;
+    JsObjHandle            m_pJSFunctionOnInputDelete;
 };
 }
 

@@ -536,6 +536,10 @@ JNIEXPORT void JNICALL Java_layaair_game_browser_ConchJNI_inputChange(JNIEnv* en
 {
     if (JCScriptRuntime::s_JSRT->m_pCurEditBox)
     {
+		//删除事件
+		if(keycode == 67){
+			JCScriptRuntime::s_JSRT->m_pCurEditBox->onInputDeleteKey();
+		}
         JCScriptRuntime::s_JSRT->m_pCurEditBox->onInput();
     }
 }
