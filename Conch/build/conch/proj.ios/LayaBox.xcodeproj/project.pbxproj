@@ -695,7 +695,7 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = LayaBox/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					../../../../ThirdParty/zlib/lib/ios,
@@ -721,7 +721,6 @@
 					"-lwebsockets",
 					"-lzip",
 					"-lcommon",
-					"-lwebglPlus",
 					"-lrender",
 					"-lconchRuntime",
 					"-lvorbis",
@@ -755,7 +754,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				INFOPLIST_FILE = LayaBox/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					../../../../ThirdParty/zlib/lib/ios,
@@ -781,7 +780,6 @@
 					"-lwebsockets",
 					"-lzip",
 					"-lcommon",
-					"-lwebglPlus",
 					"-lrender",
 					"-lconchRuntime",
 					"-lvorbis",

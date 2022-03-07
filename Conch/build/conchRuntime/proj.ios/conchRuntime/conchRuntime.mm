@@ -523,6 +523,7 @@ void AudioEngineInterruptionListenerCallback(void* user_data, UInt32 interruptio
 //-------------------------------------------------------------------------------
 - (void)HandleTouchEnd:(NSSet*)allTouches state:(int)p_nState
 {
+    [m_pEditBox setFocus:NO];
     int nCount = (int)[allTouches count];
     int nNum = 0;//要发送 pointer_up 的总数
     IOSTouch kIOSTouch;
